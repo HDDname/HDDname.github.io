@@ -1,0 +1,159 @@
+.dialog {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1000;
+    border-radius: var(--border-radius);
+}
+
+.dialog[open] {
+    display: block;
+    animation: dialogSlideIn var(--animation-duration) var(--animation-out-back);
+}
+
+.dialog-close {
+    position: absolute;
+    padding: 0;
+    left: -24px;
+    top: -24px;
+    height: 48px;
+    width: 48px;
+    color: var(--theme-color);
+}
+
+.dialog-close::-webkit-details-marker {
+    display: none;
+}
+
+.dialog-close > summary:first-of-type {
+    list-style-type: none;
+}
+
+.dialog-close::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.dialog-close > svg {
+    height: 36px;
+    width: 36px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.loadaudio-dialog {
+    color: var(--black);
+    background: var(--semi-white-color);
+
+    width: 500px;
+    height: 10rem;
+    max-width: calc(100% - 36px);
+    max-height: 100%;
+    border: 1px solid var(--theme-color);
+    box-shadow: 0 0 1rem var(--theme-color), 0 0 0 100vmax #00000080;
+}
+
+.loadaudio-body {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.tab {
+    display: inline-block;
+}
+
+.loadaudio-tab {
+    width: 100%;
+    text-align: center;
+}
+
+.loadaudio-tab > [type="radio"] {
+    display: none;
+}
+
+.loadaudio-content {
+    position: absolute;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    visibility: hidden;
+}
+
+.loadaudio-tab > label {
+    width: 100%;
+    padding: 8px 0;
+    display: inline-block;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--theme-color);
+    user-select: none;
+}
+
+.loadaudio-tab :checked ~ label {
+    border: 1px solid var(--theme-color);
+    border-bottom-color: transparent;
+    background: #ffffffdd;
+}
+
+.loadaudio-tab :checked ~ label ~ .loadaudio-content {
+    visibility: visible;
+}
+
+.audio-input-tip,
+.audio-input-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: transform var(--transition-duration) ease-in-out;
+
+    padding: 16px;
+}
+
+.audio-input-tip:hover {
+    transform: scale(1.2);
+}
+
+.audio-input-form > input[type="url"] {
+    flex: 1 0 auto;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid var(--theme-color);
+    width: 60%;
+    margin: 8px;
+
+    font-size: 1.5rem;
+}
+
+.audio-input-form > input[type="submit"] {
+    appearance: none;
+    border: 0;
+}
+
+@keyframes dialogSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(0, 100%);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

@@ -1,54 +1,69 @@
 {
-  "name": "lrc-maker",
-  "version": "3.3.9",
-  "description": "歌词滚动姬｜可能是你所能见到的最好的歌词制作工具",
-  "scripts": {
-    "prebuild": "rm -rf ./dist",
-    "build": "webpack --mode=production && npm run render",
-    "render": "node ./bin/render.js > ./dist/index.html",
-    "prettier": "prettier --write \"src/**/*.{js,jsx,scss,json}\" \"bin/*.js\" \"webpack.*.js\""
-  },
-  "keywords": [
-    "lrc",
-    "lyric",
-    "lyric maker"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/magic-akari/lrc-maker.git"
-  },
-  "author": "阿卡琳",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/magic-akari/lrc-maker/issues"
-  },
-  "homepage": "https://github.com/magic-akari/lrc-maker#readme",
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "mobx": "^4.1.0",
-    "normalize.css": "^8.0.0",
-    "preact": "^8.2.7",
-    "preact-mobx-observer": "^1.0.4",
-    "seamless-scroll-polyfill": "^0.4.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-plugin-webpack-alias": "^2.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.7.2",
-    "preact-render-to-string": "^3.7.0",
-    "prettier": "^1.11.1",
-    "sass-loader": "^7.0.1",
-    "webpack": "^4.2.0",
-    "webpack-cli": "^3.0.2",
-    "workbox-webpack-plugin": "^3.1.0"
-  }
+    "name": "lrc-maker",
+    "version": "5.1.2",
+    "description": "歌词滚动姬｜可能是你所能见到的最好用的歌词制作工具",
+    "repository": "https://github.com/magic-akari/lrc-maker.git",
+    "author": "阿卡琳 <hufan.akarin@Gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "lrc",
+        "lrc maker",
+        "lyric",
+        "lyric maker"
+    ],
+    "bugs": "https://github.com/magic-akari/lrc-maker/issues",
+    "homepage": "https://github.com/magic-akari/lrc-maker#readme",
+    "files": [
+        "src",
+        "build"
+    ],
+    "scripts": {
+        "clean": "rm -rf ./build/* ./build.es6/*",
+        "prestart": "npm run ver",
+        "start": "npm run html && npm run esm:watch",
+        "prebuild": "npm run ver",
+        "build": "npm run css && npm run nomodule && npm run esm && npm run html",
+        "ver": "ts-node -P scripts/tsconfig.json scripts/generate.version.ts | tee src/version.d.ts > src/@worker/version.d.ts",
+        "esm": "tsc -b",
+        "preesm:watch": "npm run ver",
+        "esm:watch": "tsc -b -w",
+        "es6": "tsc -b tsconfig.es6.json",
+        "nomodule": "npm run es6 && webpack -p",
+        "css": "postcss src/index.css -m -d build",
+        "prehtml": "mkdir -p build && npm run manifest && npm run svg",
+        "html": "ts-node -P scripts/tsconfig.json scripts/index.html.tsx > build/index.html",
+        "manifest": "cp -r ./manifest/* ./build",
+        "svg": "cp -r ./svg ./build",
+        "prettier": "prettier --write \"{.,src/**,scripts}/*.{ts,tsx,js,es6,css,json,md}\"",
+        "listdiff": "prettier -l \"{.,src/**,scripts}/*.{ts,tsx,js,es6,css,json,md}\"",
+        "lint": "tslint \"{src,scripts}/**/*.{ts,tsx,es6}\""
+    },
+    "dependencies": {
+        "@lrc-maker/lrc-parser": "^0.1.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "toggle-switch-css": "^1.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^12.0.0",
+        "@types/prettier": "^1.16.3",
+        "@types/react": "^16.8.16",
+        "@types/react-dom": "^16.8.4",
+        "autoprefixer": "^9.5.1",
+        "core-js": "^3.0.1",
+        "cssnano": "^4.1.10",
+        "glob": "^7.1.3",
+        "postcss": "^7.0.15",
+        "postcss-cli": "^6.1.2",
+        "postcss-custom-properties": "^8.0.10",
+        "postcss-import": "^12.0.1",
+        "prettier": "^1.17.0",
+        "source-map-loader": "^0.2.4",
+        "ts-node": "^8.1.0",
+        "tslint": "^5.16.0",
+        "tslint-react": "^4.0.0",
+        "typescript": "^3.4.5",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.1"
+    }
 }

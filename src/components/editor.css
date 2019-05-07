@@ -1,0 +1,96 @@
+.app-editor {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: var(--border-radius);
+    border: 1px solid var(--theme-color);
+    background-color: white;
+    transition: box-shadow var(--transition-duration) ease-in-out;
+
+    margin: 16px;
+    padding: 8px;
+    font-size: 1.2rem;
+
+    position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+    .app-editor {
+        background-color: transparent;
+    }
+}
+
+.app-editor:hover {
+    box-shadow: 0 0 10px var(--theme-color);
+}
+.app-editor:focus-within {
+    box-shadow: 0 0 10px var(--theme-color);
+}
+@media (max-width: 768px) {
+    .app-editor {
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+.app-editor-infobox {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.app-textarea {
+    flex: 1 0 auto;
+    border: none;
+}
+
+.app-editor input,
+.app-editor textarea {
+    border: none;
+    padding: 0;
+    resize: none;
+    background: transparent;
+}
+
+.app-editor > details {
+    padding-bottom: 4px;
+
+    opacity: 0.6;
+}
+
+.app-editor summary {
+    user-select: none;
+}
+
+.editor-tools {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    display: flex;
+}
+
+.editor-tools-item {
+    padding: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--font-color);
+}
+
+.editor-tools-item:active {
+    color: currentColor;
+}
+
+.editor-tools-item > svg {
+    height: 24px;
+    width: 24px;
+    color: currentColor;
+}
+
+.editor-tools-item:hover > svg {
+    filter: drop-shadow(0 0 2px var(--theme-color));
+}

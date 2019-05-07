@@ -1,0 +1,187 @@
+html {
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    color: var(--font-color);
+    caret-color: var(--theme-color);
+    background: var(--background-color);
+}
+
+html,
+body {
+    overscroll-behavior-y: contain;
+}
+
+select,
+input,
+textarea {
+    color: inherit;
+}
+
+svg {
+    fill: currentColor;
+}
+
+::selection {
+    background-color: var(--theme-color);
+}
+
+.text-white ::selection {
+    color: var(--white);
+}
+
+:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+a,
+button,
+[type="submit"] {
+    border: 0;
+    background: 0;
+    padding: 0 8px;
+    appearance: none;
+    cursor: default;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+time {
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    time {
+        letter-spacing: 0;
+    }
+}
+
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration-color: var(--theme-color);
+}
+
+.link:hover::after {
+    content: "\1F517";
+    position: absolute;
+    margin-left: 4px;
+}
+
+.button {
+    color: var(--black);
+    background: white;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    opacity: 0.8;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.glow {
+    transition: text-shadow var(--transition-duration) ease;
+}
+
+.glow:hover {
+    text-shadow: 0 0 4px currentColor;
+}
+
+.glow > svg {
+    transition: filter var(--transition-duration) ease;
+}
+.glow:hover > svg {
+    filter: var(--drop-shadow);
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: 0.2;
+    transition: 0s;
+}
+
+.select-all {
+    user-select: all;
+}
+
+.app-container {
+    min-height: 100vh;
+}
+
+.page-loading::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    opacity: 0.5;
+}
+
+.akari-odango-loading {
+    height: 50vmin;
+    width: 50vmin;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+}
+
+.start-loading {
+    animation: akariLoading 2s linear infinite;
+}
+
+@keyframes akariLoading {
+    from {
+        transform: rotate(0deg) translateX(-2vmin) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(-2vmin) rotate(-360deg);
+    }
+}
+
+.akari-not-found {
+    flex: 1 1 auto;
+    align-self: flex-end;
+    max-height: 80vh;
+    max-width: 100vw;
+    opacity: 0.2;
+    filter: var(--drop-shadow);
+}

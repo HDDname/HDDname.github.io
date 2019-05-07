@@ -1,0 +1,16 @@
+{
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "quoteProps": "consistent",
+    "overrides": [
+        {
+            "files": "*.js",
+            "options": {
+                "trailingComma": "es5"
+            }
+        }
+    ]
+}

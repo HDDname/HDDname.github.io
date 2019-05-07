@@ -1,0 +1,40 @@
+:root {
+    --white: #eee;
+    --black: #111;
+
+    --theme-rgb: 245, 142, 168;
+    --theme-color: rgb(var(--theme-rgb));
+
+    --font-color: var(--black);
+    --background-color: #f1f3f4;
+
+    --semi-black-color: #202020cc;
+    --semi-white-color: #e0e0e0cc;
+
+    --border-radius: 8px;
+
+    --text-shadow: 0 0 2px var(--black);
+
+    --drop-shadow: drop-shadow(0 0 4px currentcolor);
+
+    --transition-duration: 250ms;
+    --animation-duration: 250ms;
+    --animation-durationx2: 500ms;
+
+    --animation-out-back: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: var(--black);
+        --font-color: var(--white);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-duration: 10ms;
+        --animation-duration: 100ms;
+        --animation-durationx2: 100ms;
+    }
+}

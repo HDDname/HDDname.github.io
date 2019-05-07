@@ -1,0 +1,177 @@
+.gist {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-token,
+.get-gist-id {
+    max-width: 768px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-token-tip,
+.create-new-gist {
+    flex: 1 0 auto;
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.new-token-tip-text,
+.gist-id-tip-text {
+    font-size: 1.2rem;
+    margin: 1rem;
+    text-align: center;
+    max-width: 500px;
+}
+
+.github-svg {
+    height: 100px;
+    width: 100px;
+    margin: 1rem;
+}
+
+.new-token-input,
+.gist-id-input {
+    flex: 1 0 auto;
+
+    background: 0;
+    border: 0;
+    margin: 0 0.5rem;
+    border-bottom: 1px solid var(--theme-color);
+}
+
+.new-token-form,
+.gist-id-form {
+    flex: 1 0 auto;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    max-width: 500px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-list {
+    width: 100%;
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-rows: min-content;
+    grid-gap: 1rem;
+}
+
+.file-item {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    user-select: none;
+    transition: box-shadow var(--transition-duration) ease-in-out;
+    box-shadow: 0 0 2px var(--font-color);
+}
+
+.file-item:hover {
+    box-shadow: 0 0 1rem var(--theme-color);
+}
+
+.file-content {
+    height: 15rem;
+    white-space: pre;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+.file-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.file-title {
+    padding: 0.5rem;
+}
+
+.file-action {
+    flex: 0 0 auto;
+}
+
+.file-load {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    transition: color 250ms ease-in-out;
+}
+
+.file-load > svg {
+    pointer-events: none;
+}
+
+.file-load:hover {
+    color: var(--theme-color);
+}
+
+.gist-details {
+    width: 100%;
+    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .gist-details {
+        padding: 1rem 0;
+    }
+}
+
+.gist-details {
+    user-select: none;
+}
+
+.gist-bar {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .gist-bar {
+        flex-direction: column;
+    }
+}
+
+.gist-info,
+.ratelimit {
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+
+.ratelimit > p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.gist-loading {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gist-no-data {
+    flex: 1 1 auto;
+    display: flex;
+}

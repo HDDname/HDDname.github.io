@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "module": "esnext",
+        "lib": ["dom", "es2018"],
+        "jsx": "react",
+        "outDir": "./build",
+        "rootDir": "./src",
+        "removeComments": true,
+        "downlevelIteration": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "incremental": true,
+        "tsBuildInfoFile": "./build/lrc-maker.tsbuildinfo"
+    },
+    "include": ["src"],
+    "exclude": ["src/@worker", "src/lrc-parser.js"],
+    "references": [{ "path": "./src/@worker" }, { "path": "./src/lrc-parser.js" }]
+}
